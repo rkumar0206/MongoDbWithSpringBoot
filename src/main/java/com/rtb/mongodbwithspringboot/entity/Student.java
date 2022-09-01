@@ -18,7 +18,7 @@ public class Student {
     private Department department;
     private List<Subject> subjects;
 
-    Student() {
+    public Student() {
     }
 
     public Student(String id, String name) {

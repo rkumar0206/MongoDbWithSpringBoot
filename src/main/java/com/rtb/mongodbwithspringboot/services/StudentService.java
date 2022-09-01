@@ -11,4 +11,7 @@ public interface StudentService {
     List<Student> getAllStudents();
     Student updateStudent(Student student);
     String deleteStudentById(String id);
+    List<Student> getByName(String name);
+    List<Student> getByNameAndEmail(String name, String email);
+    List<Student> getByNameOrEmail(String name, String email);
 }

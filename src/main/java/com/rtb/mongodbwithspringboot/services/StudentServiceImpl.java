@@ -46,4 +46,20 @@ public class StudentServiceImpl implements StudentService{
         studentRepository.deleteById(id);
         return "Student deleted successfully";
     }
+
+    @Override
+    public List<Student> getByName(String name) {
+
+        return studentRepository.findByName(name);
+    }
+
+    @Override
+    public List<Student> getByNameAndEmail(String name, String email) {
+        return studentRepository.findByNameAndEmail(name, email);
+    }
+
+    @Override
+    public List<Student> getByNameOrEmail(String name, String email) {
+        return studentRepository.findByNameOrEmail(name, email);
+    }
 }

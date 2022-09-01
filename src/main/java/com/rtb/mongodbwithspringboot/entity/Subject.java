@@ -10,6 +10,13 @@ public class Subject {
     @Field(name = "marks_obtained")
     private int marksObtained;
 
+    public Subject() {}
+
+    public Subject(String subjectName, int marksObtained) {
+        this.subjectName = subjectName;
+        this.marksObtained = marksObtained;
+    }
+
     public String getSubjectName() {
         return subjectName;
     }
