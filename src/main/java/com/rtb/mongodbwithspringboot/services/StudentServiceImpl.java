@@ -115,4 +115,10 @@ public class StudentServiceImpl implements StudentService{
 
         return studentRepository.findByNameStartsWith(name);
     }
+
+    @Override
+    public List<Student> getByNameUsingNativeQuery(String name) {
+
+        return studentRepository.getByName(name);
+    }
 }

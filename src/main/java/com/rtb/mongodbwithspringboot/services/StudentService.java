@@ -21,4 +21,5 @@ public interface StudentService {
     List<Student> getBySubjectName(String subjectName); // to understand how to get documents using array value
     List<Student> getByEmailLike(String email); //  to understand like query
     List<Student> getByNameStartsWith(String name); //  to understand startsWith query
+    List<Student> getByNameUsingNativeQuery(String name);
 }

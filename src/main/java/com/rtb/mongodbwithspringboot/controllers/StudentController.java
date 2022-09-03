@@ -48,7 +48,7 @@ public class StudentController {
     @GetMapping("/studentsByName/{name}")
     private List<Student> getByStudentName(@PathVariable String name) {
 
-        return studentService.getByName(name);
+        return studentService.getByNameUsingNativeQuery(name);
     }
 
     @GetMapping("/studentByNameAndEmail")

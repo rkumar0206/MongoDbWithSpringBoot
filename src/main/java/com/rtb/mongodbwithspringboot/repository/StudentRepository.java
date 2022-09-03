@@ -2,6 +2,7 @@ package com.rtb.mongodbwithspringboot.repository;
 
 import com.rtb.mongodbwithspringboot.entity.Student;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -33,4 +34,8 @@ public interface StudentRepository extends MongoRepository<Student, String> {
     // native query : { "name" : /^Raj/ }
     // internal call query : { "name" : { "$regularExpression" : { "pattern" : "^Raj", "options" : ""}}}
     List<Student> findByNameStartsWith(String name);
+
+    // using native query
+    @Query("{ \"name\" : \"?0\" }")
+    List<Student> getByName(String name);
 }
