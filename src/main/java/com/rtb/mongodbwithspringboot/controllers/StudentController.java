@@ -62,4 +62,47 @@ public class StudentController {
 
         return studentService.getByNameOrEmail(name, email);
     }
+
+    @GetMapping("/allWithPagination")
+    private List<Student> getAllWithPagination(@RequestParam int pageNo, @RequestParam int pageSize) {
+
+        return studentService.getAllWithPagination(pageNo, pageSize);
+    }
+
+    @GetMapping("/allWithSorting")
+    private List<Student> getAllWithSorting() {
+
+        return studentService.getAllWithSorting();
+    }
+
+    @GetMapping("/paginationAndSortingTogether")
+    private List<Student> getAllWithPaginationAndSorting(@RequestParam int pageNo, @RequestParam int pageSize) {
+
+        return studentService.getAllWithPaginationAndSorting(pageNo, pageSize);
+    }
+
+    @GetMapping("/byDepartmentName")
+    private List<Student> getByDepartmentName(@RequestParam String departmentName) {
+
+        return studentService.getByDepartmentName(departmentName);
+    }
+
+    @GetMapping("/bySubjectName")
+    private List<Student> getBySubjectName(@RequestParam String subjectName) {
+
+        return studentService.getBySubjectName(subjectName);
+    }
+
+    @GetMapping("/emailLike")
+    private List<Student> getByEmailLike(@RequestParam String email) {
+
+        return studentService.getByEmailLike(email);
+    }
+
+    @GetMapping("/nameStartsWith")
+    private List<Student> getByNameStartWith(@RequestParam String name) {
+
+        return studentService.getByNameStartsWith(name);
+    }
+
 }

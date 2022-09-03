@@ -2,6 +2,7 @@ package com.rtb.mongodbwithspringboot.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceCreator;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -17,6 +18,10 @@ public class Student {
     private String email;
     private Department department;
     private List<Subject> subjects;
+
+    // transient means it will not be stored into the database, it will be there in json response
+    @Transient
+    private double percentage;
 
     public Student() {
     }
@@ -75,5 +80,25 @@ public class Student {
 
     public void setSubjects(List<Subject> subjects) {
         this.subjects = subjects;
+    }
+
+    public double getPercentage() {
+
+        if (subjects != null && subjects.size() > 0) {
+
+            float total = 0.0f;
+
+            for (Subject subject : subjects) {
+                total += subject.getMarksObtained();
+            }
+
+            return total / subjects.size();
+        }
+
+        return 0.00;
+    }
+
+    public void setPercentage(double percentage) {
+        this.percentage = percentage;
     }
 }

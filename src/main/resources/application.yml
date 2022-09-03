@@ -6,3 +6,7 @@ spring:
       database: spring
 server:
   port: 8090
+
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
